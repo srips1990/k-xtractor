@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>K-Xtractor</title>
+	{% load static %}
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'theme_files/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'theme_files/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'theme_files/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'theme_files/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'theme_files/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'theme_files/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'theme_files/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'theme_files/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+	{% csrf_token %}
+	<div class="contact1">
+		<div class="container-contact1">
+			<form class="contact1-form validate-form">
+				<span class="contact1-form-title">
+					Enter the job description
+				</span>
+
+				<div class="wrap-input1 validate-input" data-validate = "Job description is required">
+					<textarea class="input1" id="job_desc" name="job_desc" rows="14" placeholder="Job Description"></textarea>
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="wrap-input1 validate-input" data-validate = "Number of words is required">
+					<input class="input1" type="text" id="num_words" name="num_words" placeholder="Number of words to extract">
+					<span class="shadow-input1"></span>
+				</div>
+
+				<div class="container-contact1-form-btn">
+					<button type="button" onclick="get_output(job_desc,num_words,output,this)" class="contact1-form-btn">
+						<span>
+							Submit
+						</span>
+					</button><br><br>
+				</div>
+			</form>
+			<div id="output" class="contact1-pic js-tilt"></div>
+			<div><br><br><b>Please follow us on LinkedIn for further updates</b> - <a href="https://www.linkedin.com/in/gururajangovindan" target="new">Gururajan</a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/sripathisrinivasan" target="new">Sripathi</a></div>
+
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="{% static 'theme_files/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'theme_files/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'theme_files/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'theme_files/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'theme_files/vendor/tilt/tilt.jquery.min.js' %}"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+
+<!--===============================================================================================-->
+	<script src="{% static 'theme_files/js/main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/cookies.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+
+</body>
+</html>
