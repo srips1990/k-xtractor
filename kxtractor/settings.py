@@ -25,7 +25,7 @@ SECRET_KEY = '7weqlh7jq9pz@1paqm5p-#-)b^-0cbil7jv&8eso+#n6)%5-j&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['k-xtractor2020.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
