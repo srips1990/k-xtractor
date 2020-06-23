@@ -31,11 +31,12 @@
 	{% csrf_token %}
 	<div class="contact1">
 		<div class="container-contact1">
-			<form class="contact1-form validate-form">
-				<span class="contact1-form-title">
-					Enter the job description
-				</span>
+			<span class="contact1-form-title txt-left-pad">
+				Enter the job description
+			</span>
+			<span class="foot-note-right"><b>Please follow us on LinkedIn for further updates</b> - <a href="https://www.linkedin.com/in/gururajangovindan" target="new"><span class="fa fa-linkedin"></span>&nbsp;Gururajan</a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/sripathisrinivasan" target="new1"><span class="fa fa-linkedin"></span>&nbsp;Sripathi</a></span>
 
+			<form class="contact1-form validate-form">
 				<div class="wrap-input1 validate-input" data-validate = "Job description is required">
 					<textarea class="input1" id="job_desc" name="job_desc" rows="14" placeholder="Job Description"></textarea>
 					<span class="shadow-input1"></span>
@@ -47,16 +48,19 @@
 				</div>
 
 				<div class="container-contact1-form-btn">
-					<button type="button" onclick="get_output(job_desc,num_words,output,this)" class="contact1-form-btn">
+					<button type="button" onclick="get_output(job_desc,num_words,this)" class="contact1-form-btn">
 						<span>
 							Submit
 						</span>
 					</button><br><br>
 				</div>
 			</form>
-			<div id="output" class="contact1-pic js-tilt"></div>
-			<div><br><br><b>Please follow us on LinkedIn for further updates</b> - <a href="https://www.linkedin.com/in/gururajangovindan" target="new"><span class="fa fa-linkedin"></span>&nbsp;Gururajan</a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/sripathisrinivasan" target="new"><span class="fa fa-linkedin"></span>&nbsp;Sripathi</a></div>
 
+			<div id="output" class="contact1-pic">
+				<div id="status"></div>
+				<div id="most_freq_container" class="js-tilt" data-tilt></div><br><br>
+				<div id="least_freq_container" class="js-tilt" data-tilt></div>
+			</div>
 		</div>
 	</div>
 

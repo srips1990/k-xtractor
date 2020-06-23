@@ -170,7 +170,7 @@ iframe {
 /*------------------------------------------------------------------
 [  ]*/
 .contact1-pic {
-  width: 296px;
+  width: 400px;
 }
 
 .contact1-pic img {
@@ -354,7 +354,7 @@ textarea.input1 + .shadow-input1 {
   }
 
   .contact1-pic {
-    display: none;
+    width: 35%;
   }
 
   .contact1-form {
