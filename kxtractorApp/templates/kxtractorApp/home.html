@@ -26,6 +26,19 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'theme_files/css/util.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'theme_files/css/main.css' %}">
 <!--===============================================================================================-->
+
+<!--  Removing spinners from input number field	-->
+	<style>
+		input::-webkit-outer-spin-button,
+		input::-webkit-inner-spin-button {
+		  -webkit-appearance: none;
+		  margin: 0;
+		}
+
+		input[type=number] {
+		  -moz-appearance: textfield;
+		}
+	</style>
 </head>
 <body>
 	{% csrf_token %}
@@ -35,20 +48,20 @@
 				&emsp;&emsp;Resume Optimizer
 			</span>
 			<span class="foot-note-right"><b>Please follow us on LinkedIn for further updates</b> - <a href="https://www.linkedin.com/in/gururajangovindan" target="new"><span class="fa fa-linkedin"></span>&nbsp;Gururajan</a>&nbsp;&nbsp;<a href="https://www.linkedin.com/in/sripathisrinivasan" target="new1"><span class="fa fa-linkedin"></span>&nbsp;Sripathi</a></span>
-			<form class="contact1-form validate-form">
+			<form id="main_form" class="contact1-form validate-form">
 				<br>
 				<div class="wrap-input1 validate-input" data-validate = "Job description is required">
-					<textarea class="input1" id="job_desc" name="job_desc" rows="14" placeholder="Job Description"></textarea>
+					<textarea class="input1" id="job_desc" name="job_desc" rows="14" placeholder="Job Description" maxlength="10000" required></textarea>
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate = "Number of words is required">
-					<input class="input1" type="text" id="num_words" name="num_words" placeholder="Number of words to extract">
+					<input class="input1" type="number" id="num_words" name="num_words" placeholder="Number of words to extract" required>
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="container-contact1-form-btn">
-					<button type="button" onclick="get_output(job_desc,num_words,this)" class="contact1-form-btn">
+					<button id="btn_submit" type="button" class="contact1-form-btn">
 						<span>
 							Submit
 						</span>
@@ -67,7 +80,6 @@
 
 
 
-
 <!--===============================================================================================-->
 	<script src="{% static 'theme_files/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
 <!--===============================================================================================-->
@@ -83,20 +95,31 @@
 		})
 	</script>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+	<script>
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
 
-  gtag('config', 'UA-23581568-13');
-</script>
+	  gtag('config', 'UA-23581568-13');
+	</script>
+<!--===============================================================================================-->
+	<script type="text/javascript">
+		window.onload = function() {
+			btn_submit.onclick = function() { validateAndSubmitJobDescForm(main_form) }
+		}
+	</script>
 
 <!--===============================================================================================-->
 	<script src="{% static 'theme_files/js/main.js' %}"></script>
+<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static 'js/cookies.js' %}"></script>
+<!--===============================================================================================-->
 	<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="{% static 'js/validate.js' %}"></script>
+<!--===============================================================================================-->
 
 </body>
 </html>

@@ -1,5 +1,5 @@
 
-function get_output(job_desc, num_words, invoker) {
+var get_output = function(job_desc, num_words, invoker) {
 	var xmlhttp = new XMLHttpRequest();
 //    var csrftoken = getCookie('csrftoken');
     var csrftoken = document.getElementsByName('csrfmiddlewaretoken')[0].value;
@@ -38,7 +38,26 @@ function get_output(job_desc, num_words, invoker) {
 				}
 				else if (xmlhttp.status == 500) {
 					console.log(xmlhttp);
-					status_elem.innerHTML = xmlhttp.statusText;
+					var error_obj, error_msg;
+					try {
+                        error_obj = JSON.parse(xmlhttp.responseText);
+                        if(error_obj.hasOwnProperty("error")) {
+					        status_elem.innerHTML = error_obj.error;
+                        }
+                        else if(error_obj.hasOwnProperty("validation_error")) {
+                            var err_element = document.getElementById(error_obj.field_name)
+                            err_element.setCustomValidity(error_obj.validation_error);
+                            err_element.reportValidity();
+                        }
+                        else {
+					        status_elem.innerHTML = "Internal Server error. Check console logs";
+					        console.log(error_obj)
+                        }
+
+                    } catch (e) {
+                        error_msg = xmlhttp.statusText;
+					    status_elem.innerHTML = error_msg;
+                    }
 				}
 			}
 		};
