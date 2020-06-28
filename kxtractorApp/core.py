@@ -69,9 +69,10 @@ def convert_file_to_dataURI(file_name):
 # Generate a word cloud image
 def wordcloud_gen_image(str_inp, num_of_words, stop_words=[]):
     if not stop_words:
-        wordcloud = WordCloud(stopwords=stop_words, max_words=num_of_words, max_font_size=40).generate(str_inp)
-    else:
         wordcloud = WordCloud(max_words=num_of_words, max_font_size=40).generate(str_inp)
+    else:
+        wordcloud = WordCloud(stopwords=stop_words, max_words=num_of_words, max_font_size=40).generate(str_inp)
+
     rand = random.randint(10000, 99999)
     file_name = "img" + str(rand) + ".png"
     wordcloud.to_file(os.path.join(appSettings.TEMP_FILES_DIR_PATH, file_name))
